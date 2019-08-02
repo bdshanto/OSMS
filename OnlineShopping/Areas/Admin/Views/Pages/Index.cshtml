@@ -62,12 +62,12 @@ else
     /*
         Confirm page deletion
     */
-    $(function () {
-        $("a.delete").click(function () {
+    $(function() {
+        $("a.delete").click(function() {
             if (!confirm("Confirm page deletion"))
                 return false;
-        })
-    })
+        });
+    });
 
     /////////////////////////////////
 
@@ -77,15 +77,17 @@ else
     $("table#pages tbody").sortable({
         items: "tr:not(.home)",
         placeholder: "ui-state-highlight",
-        update: function () {
+        update: function() {
             var ids = $("table#pages tbody").sortable("serialize")
             var url = "/Admin/Pages/ReorderPages"
 
-            $.post(url, ids, function (data) {
+            $.post(url,
+                ids,
+                function(data) {
 
-            })
+                });
         }
-    })
+    });
 
     /////////////////////////////////
 

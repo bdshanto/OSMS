@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CmsShoppingCart</RootNamespace>
-    <AssemblyName>CmsShoppingCart</AssemblyName>
+    <RootNamespace>OnlineShopping</RootNamespace>
+    <AssemblyName>OnlineShopping</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -62,6 +62,12 @@
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Rotativa.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.Core.2.0.0\lib\net45\Rotativa.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Rotativa.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.MVC.2.0.3\lib\net45\Rotativa.MVC.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -190,10 +196,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\CmsShoppingCart.mdf" />
-    <Content Include="App_Data\CmsShoppingCart_log.ldf">
-      <DependentUpon>CmsShoppingCart.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fancybox\blank.gif" />
@@ -891,6 +893,10 @@
     <Content Include="Images\Uploads\Products\8\Thumbs\apple1.jpg" />
     <Content Include="Images\Uploads\Products\9\grapefruit1.jpg" />
     <Content Include="Images\Uploads\Products\9\Thumbs\grapefruit1.jpg" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -916,10 +922,11 @@
     <Content Include="course files\fileman\lang\sk.json" />
     <Content Include="course files\fileman\lang\tr.json" />
     <Content Include="course files\fileman\web.config" />
-    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\AddPage.cshtml" />
     <Content Include="Areas\Admin\Views\Pages\EditPage.cshtml" />
@@ -954,7 +961,7 @@
     <Content Include="Areas\Admin\Views\Shop\AddProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\Products.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\EditProduct.cshtml" />
-    <Content Include="libman.json" />
+    <Content Include="libman.json" /> 
     <Content Include="Areas\Admin\Views\Shop\Orders.cshtml" />
     <Content Include="Content\TemplateCss\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\TemplateCss\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
@@ -992,6 +999,10 @@
     <Content Include="Content\TemplateCss\plugins\themify-icons\fonts\themify.eot" />
     <Content Include="Content\TemplateCss\plugins\themify-icons\fonts\themify.ttf" />
     <Content Include="Content\TemplateCss\plugins\themify-icons\fonts\themify.woff" />
+ 
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="App_Browsers\qt.browser" />
+ 
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\ckeditor.php" />
     <Content Include="Scripts\ckeditor\ckeditor_basic.js" />
@@ -1360,7 +1371,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1388,6 +1401,8 @@
     <Content Include="Views\Account\Orders.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\TemplateResource\Img\" />
     <Folder Include="course files\fileman\aspnet_client\system_web\2_0_50727\" />
     <Folder Include="course files\fileman\aspnet_client\system_web\4_0_30319\" />
     <Folder Include="course files\fileman\tmp\" />

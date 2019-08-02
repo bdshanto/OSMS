@@ -54,8 +54,8 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="HasSidebar">Product Image</label>
             <div class="col-md-10">
-                <input type="file" name="file" id="ImageUpload" />
                 <img id="imgpreview" src="#" />
+                <input type="file" name="file" id="ImageUpload"  /> 
             </div>
         </div>
 
@@ -90,13 +90,13 @@
                     .height(200)
             }
 
-            reader.readAsDataURL(input.files[0])
+            reader.readAsDataURL(input.files[0]);
         }
     }
 
-    $("#ImageUpload").change(function () {
-        readURL(this)
-    })
+    $("#ImageUpload").change(function() {
+        readURL(this);
+    });
    
 
     /////////////////////////////////
