@@ -33,20 +33,14 @@ namespace OnlineShopping.Controllers
             // Get page DTO
             using (Db db = new Db())
             {
-                dto = db.Pages.Where(x => x.Slug == page).FirstOrDefault();
+                dto = db.Pages.FirstOrDefault(x => x.Slug == page);
             }
 
             // Set page title
             ViewBag.PageTitle = dto.Title;
 
             // Check for sidebar
-            if (dto.HasSidebar == true)
-            {
-                ViewBag.Sidebar = "Yes";
-            } else
-            {
-                ViewBag.Sidebar = "No";
-            }
+            ViewBag.Sidebar = dto.HasSidebar == true ? "Yes" : "No";
 
             // Init model
             model = new PageVM(dto);
@@ -58,12 +52,12 @@ namespace OnlineShopping.Controllers
         public ActionResult PagesMenuPartial()
         {
             // Declare list of PageVM
-            List<PageVM> pageVMList;
+            List<PageVM> pageVmList;
 
             // Get all pages except home
             using (Db db = new Db())
             {
-                pageVMList = db.Pages
+                pageVmList = db.Pages
                     .ToArray()
                     .OrderBy(x => x.Sorting)
                     .Where(x => x.Slug != "home")
@@ -72,7 +66,7 @@ namespace OnlineShopping.Controllers
             }
 
             // Return partial view with list
-            return PartialView(pageVMList);
+            return PartialView(pageVmList);
         }
         
 
