@@ -12,9 +12,10 @@ namespace OnlineShopping.Models.ViewModels.Shop
     {
         public ProductVM()
         {
-
         }
-        public ProductVM(ProductDTO row)
+
+         
+        public ProductVM(ProductDto row)
         {
             Id = row.Id;
             Name = row.Name;
@@ -30,8 +31,8 @@ namespace OnlineShopping.Models.ViewModels.Shop
         [Required]
         public string Name { get; set; }
         public string Slug { get; set; }
-
         [Required]
+        [AllowHtml]
         public string Description { get; set; }
         public decimal Price { get; set; }
         public string CategoryName { get; set; }
@@ -44,6 +45,7 @@ namespace OnlineShopping.Models.ViewModels.Shop
         public string ImageName { get; set; }
 
         public IEnumerable<SelectListItem> Categories { get; set; }
+        
         public IEnumerable<string> GalleryImages { get; set; }
     }
 }

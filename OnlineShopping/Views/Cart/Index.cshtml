@@ -92,8 +92,11 @@ else
         </form>
     </div>
     <br />
-
-    <a href="#" class="placeorder btn btn-primary pull-right">Checkout</a>
+    if (Request.IsAuthenticated)
+    {
+        <a href="#" class="placeorder btn btn-primary pull-right">Checkout</a>
+    }
+   
 
 
 }

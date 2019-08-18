@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineShopping.Models.Data
 {
     [Table("tblOrders")]
-    public class OrderDTO
+    public class OrderDto
     {
         [Key]
         public int OrderId { get; set; }

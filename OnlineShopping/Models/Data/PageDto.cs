@@ -8,7 +8,7 @@ using System.Web;
 namespace OnlineShopping.Models.Data
 {
     [Table("tblPages")]
-    public class PageDTO
+    public class PageDto
     {
         [Key]
         public int Id { get; set; }

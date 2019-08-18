@@ -138,6 +138,7 @@ namespace OnlineShopping.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session["cart"] = null;
             return Redirect("~/account/login");
         }
         [Authorize]
@@ -274,13 +275,13 @@ namespace OnlineShopping.Controllers
                     decimal total = 0m;
 
                     //init list of orderdetailsDTO
-                    List<OrderDetailsDTO> orderDetailsDtos =
+                    List<OrderDetailsDto> orderDetailsDtos =
                         db.OrderDetails.Where(x => x.OrderId == order.OrderId).ToList();
                     //loop though list of orderdetailsDTO
                     foreach (var orderDetails in orderDetailsDtos)
                     {
                         //get products
-                        ProductDTO product = db.Products.FirstOrDefault(x => x.Id == orderDetails.ProductId);
+                        ProductDto product = db.Products.FirstOrDefault(x => x.Id == orderDetails.ProductId);
                         //get product price
                         decimal price = product.Price;
                         //get product name

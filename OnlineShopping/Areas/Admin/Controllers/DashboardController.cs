@@ -35,7 +35,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
                     //declare total
                     decimal total = 0m;
                     //init list of orderdetailsdto
-                    List<OrderDetailsDTO> orderDetailsList =
+                    List<OrderDetailsDto> orderDetailsList =
                         db.OrderDetails.Where(x => x.OrderId == order.OrderId).ToList();
                     //get username 
                     UserDTO user = db.Users.Where(x => x.Id == order.UserId).FirstOrDefault();
@@ -87,14 +87,14 @@ namespace OnlineShopping.Areas.Admin.Controllers
             using (Db db = new Db())
             {
                 // Get the order
-                OrderDetailsDTO order = db.OrderDetails.Find(id);
+                OrderDetailsDto order = db.OrderDetails.Find(id);
                 // Remove the order
                 db.OrderDetails.Remove(order);
 
                 // Save
                 db.SaveChanges();
 
-                OrderDTO dto = db.Orders.Find(id);
+                OrderDto dto = db.Orders.Find(id);
                 db.Orders.Remove(dto);
                 db.SaveChanges();
             }

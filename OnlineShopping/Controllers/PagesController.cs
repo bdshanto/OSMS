@@ -19,7 +19,7 @@ namespace OnlineShopping.Controllers
 
             // Declare model and DTO
             PageVM model;
-            PageDTO dto;
+            PageDto dto;
 
             // Check if page exists
             using (Db db = new Db())

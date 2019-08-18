@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -174,9 +177,9 @@
     </Compile>
     <Compile Include="Models\Data\CategoryDTO.cs" />
     <Compile Include="Models\Data\Db.cs" />
-    <Compile Include="Models\Data\OrderDetailsDTO.cs" />
-    <Compile Include="Models\Data\OrderDTO.cs" />
-    <Compile Include="Models\Data\PageDTO.cs" />
+    <Compile Include="Models\Data\OrderDetailsDto.cs" />
+    <Compile Include="Models\Data\OrderDto.cs" />
+    <Compile Include="Models\Data\PageDto.cs" />
     <Compile Include="Models\Data\ProductDTO.cs" />
     <Compile Include="Models\Data\RoleDTO.cs" />
     <Compile Include="Models\Data\SidebarDTO.cs" />
@@ -864,6 +867,7 @@
     <Content Include="fileman\js\utils.js" />
     <Content Include="fileman\LICENSE.txt" />
     <Content Include="fileman\third-party.txt" />
+    <Content Include="fileman\Uploads\Documents\IMG_4994.JPG" />
     <Content Include="fileman\Uploads\Images\DSC_2987.jpg" />
     <Content Include="fileman\Uploads\Images\DSC_5744.jpg" />
     <Content Include="fileman\Uploads\LICENSE.txt" />
@@ -871,6 +875,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\banner_1.jpg" />
+    <Content Include="Images\banner_2.jpg" />
+    <Content Include="Images\banner_3.jpg" />
+    <Content Include="Images\deal_ofthe_week.png" />
     <Content Include="Images\Uploads\Products\10\grapes1.jpg" />
     <Content Include="Images\Uploads\Products\10\Thumbs\grapes1.jpg" />
     <Content Include="Images\Uploads\Products\11\mand1.jpg" />
@@ -961,8 +969,7 @@
     <Content Include="Areas\Admin\Views\Shop\AddProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\Products.cshtml" />
     <Content Include="Areas\Admin\Views\Shop\EditProduct.cshtml" />
-    <Content Include="libman.json" /> 
-    <Content Include="Areas\Admin\Views\Shop\Orders.cshtml" />
+    <Content Include="libman.json" />
     <Content Include="Content\TemplateCss\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\TemplateCss\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\TemplateCss\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -999,10 +1006,8 @@
     <Content Include="Content\TemplateCss\plugins\themify-icons\fonts\themify.eot" />
     <Content Include="Content\TemplateCss\plugins\themify-icons\fonts\themify.ttf" />
     <Content Include="Content\TemplateCss\plugins\themify-icons\fonts\themify.woff" />
- 
     <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="App_Browsers\qt.browser" />
- 
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\ckeditor.php" />
     <Content Include="Scripts\ckeditor\ckeditor_basic.js" />
@@ -1355,6 +1360,7 @@
     <Content Include="Scripts\dropzone\dropzone.js" />
     <Content Include="Scripts\dropzone\dropzone.min.css" />
     <Content Include="Scripts\dropzone\dropzone.min.js" />
+    <Content Include="Scripts\jcarousellite_1.0.2.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -1399,10 +1405,12 @@
     <Content Include="Views\Account\UserProfile.cshtml" />
     <Content Include="Views\Cart\PaypalPartial.cshtml" />
     <Content Include="Views\Account\Orders.cshtml" />
+    <Content Include="Views\Shop\_ShopSharedView.cshtml" />
+    <Content Include="Views\Shop\Dashboard.cshtml" />
+    <Content Include="Views\Shop\NewArrivalPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\TemplateResource\Img\" />
     <Folder Include="course files\fileman\aspnet_client\system_web\2_0_50727\" />
     <Folder Include="course files\fileman\aspnet_client\system_web\4_0_30319\" />
     <Folder Include="course files\fileman\tmp\" />
@@ -1411,7 +1419,6 @@
     <Folder Include="fileman\aspnet_client\system_web\2_0_50727\" />
     <Folder Include="fileman\aspnet_client\system_web\4_0_30319\" />
     <Folder Include="fileman\tmp\" />
-    <Folder Include="fileman\Uploads\Documents\" />
     <Folder Include="fileman\Uploads\FLV\" />
     <Folder Include="Images\Uploads\Products\10\Gallery\Thumbs\" />
     <Folder Include="Images\Uploads\Products\11\Gallery\Thumbs\" />

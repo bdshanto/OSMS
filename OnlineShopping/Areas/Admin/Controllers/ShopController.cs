@@ -180,7 +180,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
             // Init and save productDTO
             using (Db db = new Db())
             {
-                ProductDTO product = new ProductDTO();
+                ProductDto product = new ProductDto();
 
                 product.Name = model.Name;
                 product.Slug = model.Name.Replace(" ", "-").ToLower();
@@ -253,7 +253,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
                 // Save image name to DTO
                 using (Db db = new Db())
                 {
-                    ProductDTO dto = db.Products.Find(id);
+                    ProductDto dto = db.Products.Find(id);
                     dto.ImageName = imageName;
 
                     db.SaveChanges();
@@ -283,7 +283,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
         public ActionResult Products(int? page, int? catId)
         {
             // Declare a list of ProductVM
-            List<ProductVM> listOfProductVM;
+            List<ProductVM> listOfProductVm;
 
             // Set page number
             var pageNumber = page ?? 1;
@@ -291,7 +291,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
             using (Db db = new Db())
             {
                 // Init the list
-                listOfProductVM = db.Products.ToArray()
+                listOfProductVm = db.Products.ToArray()
                     .Where(x => catId == null ||
                     catId == 0 ||
                     x.CategoryId == catId)
@@ -306,10 +306,10 @@ namespace OnlineShopping.Areas.Admin.Controllers
             }
 
             // Set pagination
-            var onePageOfProducts = listOfProductVM.ToPagedList(pageNumber, 3);
+            var onePageOfProducts = listOfProductVm.ToPagedList(pageNumber, 3);
             ViewBag.OnePageOfProducts = onePageOfProducts;
             // Return view with list
-            return View(listOfProductVM);
+            return View(listOfProductVm);
         }
 
         // GET: Admin/Shop/EditProduct/id
@@ -321,7 +321,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
             using (Db db = new Db())
             {
                 // Get the product
-                ProductDTO dto = db.Products.Find(id);
+                ProductDto dto = db.Products.Find(id);
 
                 // Make sure product exits
                 if (dto == null)
@@ -379,7 +379,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
             // Update product
             using (Db db = new Db())
             {
-                ProductDTO dto = db.Products.Find(id);
+                ProductDto dto = db.Products.Find(id);
                 dto.Name = model.Name;
                 dto.Slug = model.Name.Replace(" ", "-").ToLower();
                 dto.Description = model.Description;
@@ -439,7 +439,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
 
                 using (Db db = new Db())
                 {
-                    ProductDTO dto = db.Products.Find(id);
+                    ProductDto dto = db.Products.Find(id);
                     dto.ImageName = imageName;
                     db.SaveChanges();
                 }
@@ -470,7 +470,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
             // Delete product from DB
             using (Db db = new Db())
             {
-                ProductDTO dto = db.Products.Find(id);
+                ProductDto dto = db.Products.Find(id);
                 db.Products.Remove(dto);
 
                 db.SaveChanges();

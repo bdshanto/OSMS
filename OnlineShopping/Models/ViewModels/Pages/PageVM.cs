@@ -14,7 +14,7 @@ namespace OnlineShopping.Models.ViewModels.Pages
         {
 
         }
-        public PageVM(PageDTO row)
+        public PageVM(PageDto row)
         {
             Id = row.Id;
             Title = row.Title;

@@ -51,7 +51,7 @@ namespace OnlineShopping
             routes.MapRoute(
                 "Default",
                 "",
-                new { controller = "Pages", action = "Index"},
+                new { controller = "Shop", action = "Dashboard"},
                 new[] { "OnlineShopping.Controllers" }
             );
 
@@ -59,6 +59,12 @@ namespace OnlineShopping
                 "Pages",
                 "{page}",
                 new { controller = "Pages", action = "Index" },
+                new[] { "OnlineShopping.Controllers" }
+            );
+            routes.MapRoute(
+                "Dashboard",
+                "{Dashboard}",
+                new { controller = "Dashboard", action = "Shop" },
                 new[] { "OnlineShopping.Controllers" }
             );
 

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<OnlineShopping.Models.Data.ProductDto> 
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shop/_ShopSharedView.cshtml";
+} 
+ @if (!Model.Any())
+{
+    <p> -no products!</p>
+}
+else
+{
+
+    <div class="carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @{ int i = 0;}
+                @foreach (var item in Model)
+                {
+                    i++;
+                    var active = i==1?"active" : "" ;
+                    <div class="main_slider  item @active" style="background-image: url(/Images/Uploads/Products/@item.Id/@item.ImageName);  background-color: #cccccc;
+                                                                                                           height: 600px; -ms-background-size: cover; background-size: cover;
+                                                                                                           " alt="@item.ImageName">
+                        <div class="container fill_height">
+                            <div class="row align-items-center fill_height">
+                                <div class="col" style="">
+                                    <div class="main_slider_content">
+                                        @*<img src="/Images/Uploads/Products/@item.Id/@item.ImageName"/>*@
+                                        <h3 class="col-md-3">@item.Name</h3>
+                                        <h6>Description: @item.Description</h6>
+                                        <div class="red_button shop_now_button"><a href="/shop/product-details/@item.Slug">shop now</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only"></span>
+
+            </a>
+        </div>
+    </div>
+}
+
+<!-- Banner -->
+
+<div class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="banner_item align-items-center" style="background-image:url(/images/banner_1.jpg)">
+                    <div class="banner_category">
+                        <a href="/shop/category/Womens">women's</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="banner_item align-items-center" style="background-image:url(/images/banner_2.jpg)">
+                    <div class="banner_category">
+                        <a href="/shop/category/Accessories">accessories's</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="banner_item align-items-center" style="background-image:url(/images/banner_3.jpg)">
+                    <div class="banner_category">
+                        <a href="/shop/category/Mens">men's</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

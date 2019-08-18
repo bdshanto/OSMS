@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -540,7 +540,7 @@ section
 .navbar
 {
 	width: auto;
-	height: 100px;
+	height: 50px;
 	float: right;
 	padding-left: 0px;
 	padding-right: 0px;

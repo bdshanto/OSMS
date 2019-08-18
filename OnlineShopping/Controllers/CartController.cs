@@ -87,7 +87,7 @@ namespace OnlineShopping.Controllers
             using (Db db = new Db())
             {
                 // Get the product
-                ProductDTO product = db.Products.Find(id);
+                ProductDto product = db.Products.Find(id);
 
                 // Check if the product is already in cart
                 var productInCart = cart
@@ -216,8 +216,8 @@ namespace OnlineShopping.Controllers
 
             using (Db db = new Db())
             {
-                //init OrderDTO 
-                OrderDTO orderDto= new OrderDTO();
+                //init OrderDto 
+                OrderDto orderDto= new OrderDto();
                 //get user id 
                 var q = db.Users.FirstOrDefault(x => x.Username == username);
                 int userId = q.Id;
@@ -232,7 +232,7 @@ namespace OnlineShopping.Controllers
                 //get inserted id
                 orderId = orderDto.OrderId;
                 //init orderDetailsDto
-                OrderDetailsDTO orderDetails = new OrderDetailsDTO(); 
+                OrderDetailsDto orderDetails = new OrderDetailsDto(); 
                 //add to orderDetailsDto
                 foreach (var item in cart)
                 {

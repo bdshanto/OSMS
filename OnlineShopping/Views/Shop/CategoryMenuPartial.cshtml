@@ -1,9 +1,12 @@
 ﻿@model IEnumerable<OnlineShopping.Models.ViewModels.Shop.CategoryVM>
-
-<h3>Categories</h3>
-<ul>
-    @foreach (var item in Model)
-    {
-        <li><a href="/shop/category/@item.Slug.ToLower()">@item.Name</a></li>
-    }
-</ul>
+ 
+        <div class="sidebar_title">
+            <h5>Categories</h5>
+        </div>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li class=" "><a href="/shop/category/@item.Slug.ToLower()"><span class="font-weight-bold">@item.Name </span></a></li>
+            }
+        </ul>
+     

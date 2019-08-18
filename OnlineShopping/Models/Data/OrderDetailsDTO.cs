@@ -8,7 +8,7 @@ using System.Web;
 namespace OnlineShopping.Models.Data
 {
     [Table("tblOrderDetails")]
-    public class OrderDetailsDTO
+    public class OrderDetailsDto
     {
         [Key]
         public int Id { get; set; }
@@ -18,10 +18,10 @@ namespace OnlineShopping.Models.Data
         public int Quantity { get; set; }
 
         [ForeignKey("OrderId")]
-        public virtual OrderDTO Orders { get; set; }
+        public virtual OrderDto Orders { get; set; }
         [ForeignKey("UserId")]
         public virtual UserDTO Users { get; set; }
         [ForeignKey("ProductId")]
-        public virtual ProductDTO Products { get; set; }
+        public virtual ProductDto Products { get; set; }
     }
 }

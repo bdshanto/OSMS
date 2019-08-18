@@ -48,7 +48,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
                 string slug;
 
                 // Init pageDTO
-                PageDTO dto = new PageDTO();
+                PageDto dto = new PageDto();
 
                 // DTO title
                 dto.Title = model.Title;
@@ -95,7 +95,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
 
             using (Db db = new Db())
             {
-                PageDTO dto = db.Pages.Find(id);
+                PageDto dto = db.Pages.Find(id);
                 // Confirm page exists
                 if (dto == null)
                 {
@@ -128,7 +128,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
                 string slug = "home";
 
                 // Get the page
-                PageDTO dto = db.Pages.Find(id);
+                PageDto dto = db.Pages.Find(id);
 
                 // DTO the title
                 dto.Title = model.Title;
@@ -178,7 +178,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
             using (Db db = new Db())
             {
                 // Get the page
-                PageDTO dto = db.Pages.Find(id);
+                PageDto dto = db.Pages.Find(id);
                 
                 // Confirm page exists
                 if (dto == null)
@@ -200,7 +200,7 @@ namespace OnlineShopping.Areas.Admin.Controllers
             using (Db db = new Db())
             {
                 // Get the page
-                PageDTO dto = db.Pages.Find(id);
+                PageDto dto = db.Pages.Find(id);
 
                 // Remove the page
                 db.Pages.Remove(dto);
@@ -221,8 +221,8 @@ namespace OnlineShopping.Areas.Admin.Controllers
                 // Set initial count
                 int count = 1;
 
-                // Declare PageDTO
-                PageDTO dto;
+                // Declare PageDto
+                PageDto dto;
 
                 // Set sorting for each page
                 foreach(var pageId in id)

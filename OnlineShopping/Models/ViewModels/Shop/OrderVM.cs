@@ -10,7 +10,7 @@ namespace OnlineShopping.Models.ViewModels.Shop
             
         }
 
-        public OrderVM(OrderDTO row)
+        public OrderVM(OrderDto row)
         {
             OrderId = row.OrderId;
             UserId = row.UserId;

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
 using OnlineShopping.Models.Data;
 using OnlineShopping.Models.ViewModels.Shop;
@@ -11,6 +10,33 @@ namespace OnlineShopping.Controllers
 {
     public class ShopController : Controller
     {
+        //Default
+        public ActionResult Dashboard()
+        {
+            List<ProductDto> proDto; 
+            using (Db db = new Db())
+            {
+                proDto = db.Products.ToList();
+
+            }
+
+            // Return view with list
+            return View(proDto);
+        }
+        //New arrival partial
+    
+        public ActionResult NewArrivalPartial()
+        {
+            IOrderedQueryable<ProductDto> proDto;
+            using (Db db = new Db())
+            {
+                proDto = db.Products.OrderByDescending(t => t.Id);
+            }
+
+            // Return view with list
+            return View(proDto);
+        }
+        
         // GET: Shop
         public ActionResult Index()
         {
@@ -20,12 +46,12 @@ namespace OnlineShopping.Controllers
         public ActionResult CategoryMenuPartial()
         {
             // Declare list of CategoryVM
-            List<CategoryVM> categoryVMList;
+            List<CategoryVM> categoryVmList;
 
             // Init the list
             using (Db db = new Db())
             {
-                categoryVMList = db.Categories
+                categoryVmList = db.Categories
                     .ToArray()
                     .OrderBy(x => x.Sorting)
                     .Select(x => new CategoryVM(x))
@@ -34,8 +60,8 @@ namespace OnlineShopping.Controllers
             }
 
             // Return partial with list
-            return PartialView(categoryVMList);
-        }
+            return PartialView(categoryVmList);
+        } 
 
         // GET: /shop/category/name
         public ActionResult Category(string name)
@@ -77,7 +103,7 @@ namespace OnlineShopping.Controllers
         {
             // Declare the VM and DTO
             ProductVM model;
-            ProductDTO dto;
+            ProductDto dto;
 
             // Init product id
             int id = 0;
@@ -91,7 +117,7 @@ namespace OnlineShopping.Controllers
                 }
 
                 // Init productDTO
-                dto = db.Products.Where(x => x.Slug == name).FirstOrDefault();
+                dto = db.Products.FirstOrDefault(x => x.Slug == name);
 
                 // Get  id
                 id = dto.Id;

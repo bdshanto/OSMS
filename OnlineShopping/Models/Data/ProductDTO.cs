@@ -4,16 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace OnlineShopping.Models.Data
 {
     [Table("tblProducts")]
-    public class ProductDTO
+    public class ProductDto
     {
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Slug { get; set; }
+        [AllowHtml]
         public string Description { get; set; }
         public decimal Price { get; set; }
         public string CategoryName { get; set; }

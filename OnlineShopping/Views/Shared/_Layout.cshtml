@@ -1,28 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-<head> 
-    <title>@ViewBag.Title - CmsShoppingCart</title>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Colo Shop Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <link href="/Content/TemplateCss/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/Content/TemplateCss/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="/Content/TemplateCss/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="/Content/TemplateCss/plugins/OwlCarousel2-2.2.1/animate.css">
-  
-=======
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Sh@n Shop</title>
->>>>>>> fa849078a262a637fb62573384f403956f699cb9
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - Sh@n Shop</title> 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-topcancel">
+    <div class="navbar navbar-inverse navbar-fixed-topcancel" style="float: none;height: 50px;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -30,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand"><span style="color: green">SH@N</span><span style="color: red; margin: 0;" > Shop</span></a>
+                <a  class="navbar-brand" href="/"><span style="color: green">Friend</span><span style="color: red;"> Shop</span></a>
             </div>
             <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav">
@@ -84,71 +72,77 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        <div class="row">
-            <div class="ajaxbg"><span><img src="~/Content/img/ajax-loader.gif" /></span></div> 
-
-            @if (ViewBag.Title != "Create Account" &&
-                ViewBag.Title != "Login" &&
-                ViewBag.Title != "User Profile" &&
-                ViewBag.Title != "Orders"
+    <div class="container super_container card-body">
+        @*<div class="row">*@
+        <div class="ajaxbg"><span><img src="~/Content/img/ajax-loader.gif" /></span><h1></h1></div>
+        <div class="col product_section clearfix">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar_section">
+                    @if (ViewBag.Title != "Create Account" &&
+                 ViewBag.Title != "Login" &&
+                 ViewBag.Title != "User Profile" &&
+                 ViewBag.Title != "Orders"
                 )
-            {
-                <div class="col-xs-12 col-md-2">
-                    @Html.Action("CategoryMenuPartial", "Shop")
-                </div>
-            }
+                    {
+                        <div class="col-xs-12 col-md-2">
+                            @Html.Action("CategoryMenuPartial", "Shop")
+                        </div>
+                    }
 
-            @if (ViewBag.Title == "User Profile")
-            {
-                <div class="col-xs-12 col-md-2">
-                    <ul>
-                        <li><a href="/account/orders">My Orders</a></li>
-                    </ul>
-                </div>
-            }
+                    @if (ViewBag.Title == "User Profile")
+                    {
+                        <div class="col-xs-12 col-md-2">
+                            <ul>
+                                <li><a href="/account/orders">My Orders</a></li>
+                            </ul>
+                        </div>
+                    }
 
-            @if (ViewBag.Title == "Orders")
-            {
-                <div class="col-xs-12 col-md-2">
-                    <ul>
-                        <li><a href="/account/g fde`
-                              0user-profile">My Profile</a></li>
-                    </ul>
+                    @if (ViewBag.Title == "Orders")
+                    {
+                        <div class="col-xs-12 col-md-2">
+                            <ul>
+                                <li><a href="/account/user-profile">My Profile</a></li>
+                            </ul>
+                        </div>
+                    }
                 </div>
-            }
+                <!-- Price Range Filtering -->
 
-            @if (ViewBag.Sidebar == "Yes")
-            {
-                <div class="col-xs-12 col-md-7">
-                    @RenderBody()
-                </div>
-                <div class="col-xs-12 col-md-3">
-                    @Html.Action("SidebarPartial", "Pages")
-                </div>
-            }
-            else
-            {
-                <div class="col-xs-12 col-md-10">
-                    @RenderBody()
-                </div>}
+            </div>
+            <!-- Main Content -->
+            <div class="main_content">
+                <!-- Product Grid -->
 
+                @if (ViewBag.Sidebar == "Yes")
+                {
+                    <div class="col-xs-12 col-md-7">
+                        @RenderBody()
+                    </div>
+                    <div class="col-xs-12 col-md-3">
+                        @Html.Action("SidebarPartial", "Pages")
+                    </div>
+                }
+                else
+                {
+                    <div class="col-xs-12 col-md-10">
+                        @RenderBody()
+                    </div>
+
+                }
+
+            </div>
         </div>
+        @*</div>*@
 
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year -&copy; all right reserved by <span style="color: green">Friend</span><span style="color: red; margin: 0;"> Shop</span></p>
         </footer>
-    </div>
-
+    </div> 
     @Scripts.Render("~/bundles/scripts")
     @RenderSection("scripts", required: false)
-    <script src="/Content/TemplateCss/js/jquery-3.2.1.min.js"></script>
-    <script src="/Content/TemplateCss/styles/bootstrap4/popper.js"></script>
-    <script src="/Content/TemplateCss/styles/bootstrap4/bootstrap.min.js"></script>
-    <script src="/Content/TemplateCss/plugins/Isotope/isotope.pkgd.min.js"></script>
-    <script src="/Content/TemplateCss/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-    <script src="/Content/TemplateCss/plugins/easing/easing.js"></script>
-    <script src="/Content/TemplateCss/js/custom.js"></script>
+
 </body>
 </html>
